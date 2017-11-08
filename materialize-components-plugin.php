@@ -5,6 +5,7 @@
 Plugin Name: Materialize Components
 Description: A plugin to add materilize css components
 Author: Moe Himed
+Plugin URI: https://www.linkedin.com/in/moe-himed/
 Version: 1.0.0
 Text Domain: materialize-components 
 License: GPLV2 or later
@@ -26,78 +27,42 @@ along with {Plugin Name}. If not, see {URI to Plugin License}.
 */
 
 
+// This file should not be called directly
 defined('ABSPATH') or die('You shall not pass!!!!!');
 
-if (!class_exists('MaterialComponent')) {
-
-
-    class MaterialComponent {
-
-        public $plugin;
-
-        function __construct() {
-            $this->plugin = plugin_basename( __FILE__ );
-        }
-
-    	function register() {
-
-    	     add_action('admin_enqueue_scripts', array($this, 'enqueue'));
-
-             add_action('admin_menu', array($this, 'admin_page_addon'));
-
-             add_filter( "plugin_action_links_$this->plugin", array($this, 'settings_link'));
- 
-         }
-
-         public function settings_link($links){
-
-            $plugin_settings = '<a href="admin.php?page=material_component">Settings</a>';
-            array_push($links, $plugin_settings);
-            return $links;
-
-         }
-
-         public function admin_page_addon() {
-            add_menu_page( 'Material Component', 'Materialize', 'manage_options','material_component', array($this, 'admin_index'  ), 'dashicons-wordpress-alt', 110 );
-         }
-
-         public function admin_index() {
-                require_once plugin_dir_path( __FILE__ ) .'templates/admin.php';
-
-         }
- 
-
-        function create_post_type() {
-
-            add_action('init', array($this, 'custom_post_type'));
-
-        }
-
-        function custom_post_type() {
-
-            register_post_type('material', ['public' => true, 'label' => 'Materialize']);
-
-        }
-
-        function enqueue() {
-
-            wp_enqueue_style('materialiize', plugins_url('/css/materialize.min.css', __FILE__));
-
-        }
- 
-    }
-
-
-    $materialComponent = new MaterialComponent();
-    $materialComponent -> register();
-
-    require_once plugin_dir_path( __FILE__ ) .'inc/materialcomponent-activate.php';
-    register_activation_hook(__FILE__, array('MaterialComponentActivate', 'activate'));
-
-    require_once plugin_dir_path( __FILE__ ) .'inc/materialcomponent-deactivate.php';
-    register_deactivation_hook(__FILE__, array('MaterialComponentDeactivate', 'deactivate'));
-
+// Composer Autolod required once
+if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php')) {
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
+
+// Constants for files
+define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ));
+define( 'PLUGIN_URL', plugin_dir_path( __FILE__ ));
+define( 'PLUGIN', plugin_basename( __FILE__ ));
+
+use Inc\Base\Activate;
+use Inc\Base\Deactivate;
+
+// Runs on activation of plugin
+function activate_materilize() {
+      Activate::activate(); 
+}
+
+// Runs on deactivation of plugin
+function deactivate_materilize() {
+      Deactivate::deactivate(); 
+}
+
+
+register_activation_hook( __FILE__, 'activate_materilize');
+
+register_deactivation_hook( __FILE__, 'deactivate_materilize' );
+
+
+if (class_exists( 'Inc\\Init' )) {
+   Inc\Init::register_services();
+}
+
  
  
-   ?>
+ ?>

@@ -1,0 +1,17 @@
+{
+    "name": "moe/materialize-components",
+    "description": "WordPress materialize css plugin",
+    "type": "project",
+    "license": "GPLV2",
+    "authors": [
+        {
+            "name": "Moe",
+            "email": "moe.himed@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}, 
+    "autoload": {
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}

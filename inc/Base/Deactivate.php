@@ -4,11 +4,14 @@
 @package Materialize-components 
 */
 
- class MaterialComponentDeactivate {
+namespace Inc\Base;
+
+
+class Deactivate
+{
 
   public static function deactivate() {
 
-            // flush rewrite rules global method
             flush_rewrite_rules();
         }
 }
