@@ -35,22 +35,16 @@ if ( file_exists( dirname(__FILE__) . '/vendor/autoload.php')) {
     require_once dirname(__FILE__) . '/vendor/autoload.php';
 }
 
-// Constants for files
-define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ));
-define( 'PLUGIN_URL', plugin_dir_path( __FILE__ ));
-define( 'PLUGIN', plugin_basename( __FILE__ ));
-
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
-
+ 
+ 
 // Runs on activation of plugin
 function activate_materilize() {
-      Activate::activate(); 
+      Inc\Base\Activate::activate(); 
 }
 
 // Runs on deactivation of plugin
 function deactivate_materilize() {
-      Deactivate::deactivate(); 
+      Inc\Base\Deactivate::deactivate(); 
 }
 
 

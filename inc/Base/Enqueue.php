@@ -6,8 +6,10 @@
 
 namespace Inc\Base;
 
+use \Inc\Base\BaseController;
 
-class Enqueue
+
+class Enqueue extends BaseController
 {
  	public function register() {
     	 add_action('admin_enqueue_scripts', array($this, 'enqueue'));
@@ -15,6 +17,6 @@ class Enqueue
 
 
     function enqueue() {
-            wp_enqueue_style('materialiize', PLUGIN_URL . 'css/materialize.min.css');
+            wp_enqueue_style('materialiize', $this->plugin_url  . 'css/materialize.min.css');
         }
 }
