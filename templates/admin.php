@@ -1,1 +1,1 @@
-<h1> Materialize Components Settings </h1>
+<h2>  Materialize Settings </h2>

@@ -8,8 +8,8 @@ namespace Inc\Base;
 
 use \Inc\Base\BaseController;
 
-
-class Settings extends BaseController
+ 
+class Settings extends BaseController  // inheritance
 {
 
 	public function register() {
