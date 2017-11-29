@@ -6,7 +6,7 @@
 
 namespace Inc\Base;
 
-use \Inc\Base\BaseController;
+use Inc\Base\BaseController;
 
  
 class Settings extends BaseController  // inheritance
@@ -25,5 +25,4 @@ class Settings extends BaseController  // inheritance
 	   return $links;
 
 	}
-  
 }
