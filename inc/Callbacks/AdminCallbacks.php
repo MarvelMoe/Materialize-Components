@@ -30,12 +30,12 @@ class AdminCallbacks extends BaseController
     public function materializeJavascript() {
       $value = esc_attr( get_option( 'check_js' ) );
       echo '<input type="checkbox"  name="check_js" value="' . $value . '" id="jscheck" >';
-
     }
 
     public function materializeCSS() {
       $value = esc_attr( get_option( 'check_css' ) );
       echo '<input type="checkbox"  name="check_css" value="' . $value . '" id="csscheck" >';
     }
+ 
 
  }

@@ -10,6 +10,8 @@ namespace Inc\Pages;
 use Inc\Api\SettingsApi;
 use Inc\Base\BaseController;
 use Inc\Callbacks\AdminCallbacks;
+use Inc\Callbacks\ShortcodeCallbacks;
+
 
 
 class Admin extends BaseController
@@ -18,6 +20,8 @@ class Admin extends BaseController
 	public $settings;
 
 	public $callbacks;
+
+	public $shortcodes;
 
 	public $pages = array();
 
@@ -28,6 +32,8 @@ class Admin extends BaseController
  		$this->settings = new SettingsApi();
 
  		$this->callbacks = new AdminCallbacks();
+
+ 		$this->shortcodes = new ShortcodeCallbacks();
 
  		$this->setPages();
 

@@ -3,7 +3,7 @@
 @package Materialize-components 
 
 Plugin Name: Materialize Components
-Description: A plugin to add materilize components
+Description: A plugin to add materialize components
 Author: Moe Himed
 Plugin URI: https://www.linkedin.com/in/moe-himed/
 Version: 1.0.0

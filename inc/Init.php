@@ -8,7 +8,6 @@ namespace Inc;
 
 final class Init 
 {
-
 	/*
 	Store all classes inside an array @return array list of classs
 	*/
